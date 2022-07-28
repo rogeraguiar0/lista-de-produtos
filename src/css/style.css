@@ -134,7 +134,7 @@ width: 100%;
 list-style: none;
 display: flex;
 flex-wrap: wrap;
-justify-content: space-between;
+gap: 10px;
 margin-top: 40px;
 width: 90%;
 }
@@ -155,6 +155,7 @@ width: 100%;
 }
 
 .containerListaProdutos ul li h3 {
+padding-left: 8px;
 font-size: 1rem;
 font-weight: 500;
 margin: 10px 0 15px;
@@ -162,12 +163,14 @@ color: #212529;
 }
 
 .containerListaProdutos ul li p {
+padding-left: 8px;
 font-size: 0.7rem;
 color: #868e96;
 font-weight: 400;
 margin: 10px 0;
 }
 .containerListaProdutos ul li span {
+padding-left: 8px;
 font-size: 0.8rem;
 font-weight: 500;
 margin-top: 10px;
