@@ -1,4 +1,4 @@
-const container = document.querySelector("ul")
+const container = document.querySelector(".vitrine")
 const input     = document.querySelector("input")
 
 const total = document.querySelector("#total")

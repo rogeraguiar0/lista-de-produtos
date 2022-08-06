@@ -10,61 +10,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fontawesome.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="https://www.kenzie.com.br/favicon.jpeg"> />
+    <link rel="icon" href="https://www.kenzie.com.br/favicon.jpeg" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
 
     <script defer src="src/js/dataProdutos.js"></script>
-    <script defer src="./src/js/script.js"></script>
+    <script defer src="./src/js/script2.js"></script>
 
     <title>Lista de Produtos</title>
   </head>
   <body>
-    <header>
-      <h1>Shop now</h1>
-    </header>
     <main>
-      <section class="filtersContainer">
-        <div id="botoesContainer">
-          <button id="todos" class="estiloGeralBotoes estiloGeralBotoes--filter">
-            Todos Produtos
-          </button>
-          <button id="hortiFruti" class="estiloGeralBotoes estiloGeralBotoes--filter">
-            Hortifruti
-          </button>
-          <button id="panificadora" class="estiloGeralBotoes estiloGeralBotoes--filter">
-            Panificadora
-          </button>
-          <button id="laticinios" class="estiloGeralBotoes estiloGeralBotoes--filter">
-            Laticínios
-          </button>
-        </div>
+      <header>
+        <h1>Shop Now</h1>
+      </header>
+      <main>
+        <nav class="nav">
+          <ul class="nav__botoes">
+            <li><button id="todos" class="button todos">Todos</button></li>
+            <li><button id="Hortifruti" class=" button secao">Hortifruti</button></li>
+            <li><button id="Panificadora"h class=" button secao">Panificadora</button></li>
+            <li><button id="Laticinios" class="button secao">Laticínios</button></li>
+          </ul>
+          <div class="nav__pesquisa">
+            <input placeholder="Pesquisar por" type="text">
+            <button><img src="./src/img/search.png" alt=""></button>
+          </div>
+        </nav>
+        <section class="vitrine">
+          <ul class="vitrine__produtos">
 
-        <div class="containerBuscaPorNome">
-          <input
-            type="text"
-            placeholder="Pesquisar por"
-            class="campoBuscaPorNome"
-          />
-          <button
-            class="estiloGeralBotoes estiloGeralBotoes--botaoBuscaPorNome"
-          >
-            <img src="./src/img/search.png" alt="lupa" />
-          </button>
-        </div>
-      </section>
-      <section class="priceContainer">
-        <div>
-            <img src="./src/img/alert-circle.png" alt="exclamação de alerta">
-            <p>Valor total dos produtos da sessão selecionada</p>
-        </div>
-        <span id="total">R$ 0.00</span>
-      </section>
-      <!-- CONTAINER DE PRODUTOS -->
-      <section class="containerVitrine">
-        <div class="containerListaProdutos">
-         <ul></ul>
-        </div>
-      </section>
-    </main>
+          </ul>
+
+        </section>
+        <aside class="carrinho">
+          <div class="carrinho__titulo">
+            <img src="./src/img/shopping-cart.svg" alt="">
+            <h2>Carrinho</h2>
+          </div>
+          <div class="carrinho__conteudo">
+            <ul></ul>
+            <div class="carrinho__info">
+              <img src="./src/img/bag.svg" alt="">
+              <p>Por enquanto não temos produtos no carrinho</p>
+            </div>
+            <div class="carrinho__total"></div>
+          </div>
+        </aside>
+      </main>
   </body>
 </html>
