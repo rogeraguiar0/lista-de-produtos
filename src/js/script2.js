@@ -73,7 +73,7 @@ pesquisa.addEventListener("click", (event) => {
         produtos.map(element => {
             const nome      = element.nome.toLowerCase();
             const secao     = element.secao.toLowerCase();
-            const categoria = element.secao.toLowerCase();
+            const categoria = element.categoria.toLowerCase();
 
             nome.includes(valorPesquisa) || secao.includes(valorPesquisa) || categoria.includes(valorPesquisa) ? criarCard(element, vitrine) : false
         })
@@ -159,48 +159,50 @@ function addCarrinho (event) {
 vitrine.addEventListener("click", addCarrinho)
 
 function removeCarrinho (event) {
-    event.target.tagName == "BUTTON" ? event.target.parentElement.parentElement.parentElement.remove() : false;
-
-    quantidade -= 1;
-    total      -= (+event.target.parentElement.parentElement.children[2].innerText.slice(-4).trim())
-
-    carrinhoInfo.innerHTML = "";
-    carrinhoVazio.innerHTML     = "";
-
+    if (event.target.tagName == "BUTTON") {
+        event.target.parentElement.parentElement.parentElement.remove()
+        
+        quantidade -= 1;
+        total      -= (+event.target.parentElement.parentElement.children[2].innerText.slice(-4).trim())
     
-    let tagDivQuantidade = document.createElement("div");
-    tagDivQuantidade.classList.add("quantidade");
-    let tagDivPreco      = document.createElement("div");
-    tagDivPreco.classList.add("preco");
-
-    let tagQuantidade1     = document.createElement("p");
-    tagQuantidade1.innerText = "Quantidade:"
-
-    let tagQuantidade2     = document.createElement("span");
-    tagQuantidade2.innerText = quantidade;
-                
-    let tagPreco1     = document.createElement("p");
-    tagPreco1.innerText = "Preço:"
-
-    let tagPreco2     = document.createElement("span");
-    tagPreco2.innerText = `R$ ${total}.00`
-                
-    tagDivQuantidade.appendChild(tagQuantidade1);
-    tagDivQuantidade.appendChild(tagQuantidade2);
-    tagDivPreco.appendChild(tagPreco1);
-    tagDivPreco.appendChild(tagPreco2);
+        carrinhoInfo.innerHTML = "";
+        carrinhoVazio.innerHTML     = "";
     
-    carrinhoInfo.append(tagDivQuantidade, tagDivPreco);
-
-    if (quantidade == 0) {
-        carrinhoInfo.innerHTML = ""
-
-        const tagImg = document.createElement("img");
-        const tagP   = document.createElement("p");
-
-        tagImg.src     = "./src/img/bag.svg";
-        tagP.innerText = "Por enquanto não temos produtos no carrinho";
-        carrinhoVazio.append(tagImg, tagP);
+        
+        let tagDivQuantidade = document.createElement("div");
+        tagDivQuantidade.classList.add("quantidade");
+        let tagDivPreco      = document.createElement("div");
+        tagDivPreco.classList.add("preco");
+    
+        let tagQuantidade1     = document.createElement("p");
+        tagQuantidade1.innerText = "Quantidade:"
+    
+        let tagQuantidade2     = document.createElement("span");
+        tagQuantidade2.innerText = quantidade;
+                    
+        let tagPreco1     = document.createElement("p");
+        tagPreco1.innerText = "Preço:"
+    
+        let tagPreco2     = document.createElement("span");
+        tagPreco2.innerText = `R$ ${total}.00`
+                    
+        tagDivQuantidade.appendChild(tagQuantidade1);
+        tagDivQuantidade.appendChild(tagQuantidade2);
+        tagDivPreco.appendChild(tagPreco1);
+        tagDivPreco.appendChild(tagPreco2);
+        
+        carrinhoInfo.append(tagDivQuantidade, tagDivPreco);
+    
+        if (quantidade == 0) {
+            carrinhoInfo.innerHTML = ""
+    
+            const tagImg = document.createElement("img");
+            const tagP   = document.createElement("p");
+    
+            tagImg.src     = "./src/img/bag.svg";
+            tagP.innerText = "Por enquanto não temos produtos no carrinho";
+            carrinhoVazio.append(tagImg, tagP);
+        }
     }
 }
 carrinho.addEventListener("click", removeCarrinho)
